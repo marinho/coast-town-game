@@ -1,0 +1,960 @@
+fileFormatVersion: 2
+guid: 5c62777eeb5f640be93a72c484791c6d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3346198247766566159
+    second: hardware_transparent_bg_0
+  - first:
+      213: 2168919694290451550
+    second: hardware_transparent_bg_1
+  - first:
+      213: -8780794656859690224
+    second: hardware_transparent_bg_2
+  - first:
+      213: -1946334384315156938
+    second: hardware_transparent_bg_3
+  - first:
+      213: -7778322602602413389
+    second: hardware_transparent_bg_4
+  - first:
+      213: -3597980672283416764
+    second: hardware_transparent_bg_5
+  - first:
+      213: 3518284538972372703
+    second: hardware_transparent_bg_6
+  - first:
+      213: 6193514326136086748
+    second: hardware_transparent_bg_7
+  - first:
+      213: -3637966999108701457
+    second: hardware_transparent_bg_8
+  - first:
+      213: 4203285126081851871
+    second: hardware_transparent_bg_9
+  - first:
+      213: 2550801428917000630
+    second: hardware_transparent_bg_10
+  - first:
+      213: 198828255790963726
+    second: hardware_transparent_bg_11
+  - first:
+      213: -7908219896601887280
+    second: hardware_transparent_bg_12
+  - first:
+      213: -4067735374346497872
+    second: hardware_transparent_bg_13
+  - first:
+      213: -8156351191536179889
+    second: hardware_transparent_bg_14
+  - first:
+      213: 6107056976853035062
+    second: hardware_transparent_bg_15
+  - first:
+      213: -2065599146119750162
+    second: hardware_transparent_bg_16
+  - first:
+      213: -7488604139540292308
+    second: hardware_transparent_bg_17
+  - first:
+      213: -1509195093962789951
+    second: hardware_transparent_bg_18
+  - first:
+      213: -4104618139323463762
+    second: hardware_transparent_bg_19
+  - first:
+      213: -6676981092169925535
+    second: hardware_transparent_bg_20
+  - first:
+      213: -1450711322502558007
+    second: hardware_transparent_bg_21
+  - first:
+      213: -728425242362130548
+    second: hardware_transparent_bg_22
+  - first:
+      213: -1895370725619258490
+    second: hardware_transparent_bg_23
+  - first:
+      213: 1227163125513576244
+    second: hardware_transparent_bg_24
+  - first:
+      213: -1964534302322805376
+    second: hardware_transparent_bg_25
+  - first:
+      213: -1286177108692137987
+    second: hardware_transparent_bg_26
+  - first:
+      213: 1998546460080672826
+    second: hardware_transparent_bg_27
+  - first:
+      213: -2504955694653945312
+    second: hardware_transparent_bg_28
+  - first:
+      213: -335174411836404289
+    second: hardware_transparent_bg_29
+  - first:
+      213: 919115450874409721
+    second: hardware_transparent_bg_30
+  - first:
+      213: 8473684782979607755
+    second: hardware_transparent_bg_31
+  - first:
+      213: 9083311508258040071
+    second: hardware_transparent_bg_32
+  - first:
+      213: 2184161527400450063
+    second: hardware_transparent_bg_33
+  - first:
+      213: 681343837568102821
+    second: hardware_transparent_bg_34
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: hardware_transparent_bg_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 270
+        width: 35
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f052922d395107e20800000000000000
+      internalID: 3346198247766566159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hardware_transparent_bg_1
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 272
+        width: 55
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5cf78478fc891e10800000000000000
+      internalID: 2168919694290451550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hardware_transparent_bg_2
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 273
+        width: 58
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01bea3048c9542680800000000000000
+      internalID: -8780794656859690224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hardware_transparent_bg_3
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 281
+        width: 27
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63634c8803b3df4e0800000000000000
+      internalID: -1946334384315156938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hardware_transparent_bg_4
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 273
+        width: 58
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b2cd73edc8dd0490800000000000000
+      internalID: -7778322602602413389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hardware_transparent_bg_5
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 281
+        width: 33
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44763d734a7611ec0800000000000000
+      internalID: -3597980672283416764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hardware_transparent_bg_6
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 273
+        width: 58
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fde7234c52573d030800000000000000
+      internalID: 3518284538972372703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hardware_transparent_bg_7
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 273
+        width: 37
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd062a80778c3f550800000000000000
+      internalID: 6193514326136086748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hardware_transparent_bg_8
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 209
+        width: 58
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe238810a48538dc0800000000000000
+      internalID: -3637966999108701457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hardware_transparent_bg_9
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 208
+        width: 39
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd1bacd5d81155a30800000000000000
+      internalID: 4203285126081851871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hardware_transparent_bg_10
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 208
+        width: 39
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b918278264466320800000000000000
+      internalID: 2550801428917000630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hardware_transparent_bg_11
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 208
+        width: 59
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0c1bb5ce3162c200800000000000000
+      internalID: 198828255790963726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hardware_transparent_bg_12
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 200
+        width: 46
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dd3e5157eb504290800000000000000
+      internalID: -7908219896601887280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hardware_transparent_bg_13
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 210
+        width: 29
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b059c39a308c87c0800000000000000
+      internalID: -4067735374346497872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hardware_transparent_bg_14
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 211
+        width: 31
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f45e6253ec1dece80800000000000000
+      internalID: -8156351191536179889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hardware_transparent_bg_15
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 210
+        width: 40
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6386560c6ff90c450800000000000000
+      internalID: 6107056976853035062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hardware_transparent_bg_16
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 145
+        width: 58
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eed9e2745848553e0800000000000000
+      internalID: -2065599146119750162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hardware_transparent_bg_17
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 146
+        width: 50
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2d5e2f1632231890800000000000000
+      internalID: -7488604139540292308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hardware_transparent_bg_18
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 145
+        width: 54
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cbe59fde034e0be0800000000000000
+      internalID: -1509195093962789951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hardware_transparent_bg_19
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 143
+        width: 48
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea7000bac877907c0800000000000000
+      internalID: -4104618139323463762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hardware_transparent_bg_20
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 145
+        width: 58
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16c3635a2199653a0800000000000000
+      internalID: -6676981092169925535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hardware_transparent_bg_21
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 138
+        width: 22
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ce09960db90edbe0800000000000000
+      internalID: -1450711322502558007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hardware_transparent_bg_22
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 142
+        width: 25
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8fc397f91d14e5f0800000000000000
+      internalID: -728425242362130548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hardware_transparent_bg_23
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 153
+        width: 33
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68b2acdfd5a42b5e0800000000000000
+      internalID: -1895370725619258490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hardware_transparent_bg_24
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 81
+        width: 39
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43fd1b16c52c70110800000000000000
+      internalID: 1227163125513576244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hardware_transparent_bg_25
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 81
+        width: 39
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 085baf8e5729cb4e0800000000000000
+      internalID: -1964534302322805376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hardware_transparent_bg_26
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 82
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df78a2eebb4962ee0800000000000000
+      internalID: -1286177108692137987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hardware_transparent_bg_27
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 89
+        width: 33
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a30193caa634cbb10800000000000000
+      internalID: 1998546460080672826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hardware_transparent_bg_28
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 89
+        width: 33
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02a4f0a411c9c3dd0800000000000000
+      internalID: -2504955694653945312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hardware_transparent_bg_29
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 89
+        width: 33
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbdc0b4f5a8395bf0800000000000000
+      internalID: -335174411836404289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hardware_transparent_bg_30
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 89
+        width: 33
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f231f402aa51cc00800000000000000
+      internalID: 919115450874409721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hardware_transparent_bg_31
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 89
+        width: 33
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcce1242a63989570800000000000000
+      internalID: 8473684782979607755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hardware_transparent_bg_32
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 28
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70920f9f0b76e0e70800000000000000
+      internalID: 9083311508258040071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hardware_transparent_bg_33
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 22
+        width: 34
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0847c44653bf4e10800000000000000
+      internalID: 2184161527400450063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hardware_transparent_bg_34
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 20
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a1f5204c9e947900800000000000000
+      internalID: 681343837568102821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
