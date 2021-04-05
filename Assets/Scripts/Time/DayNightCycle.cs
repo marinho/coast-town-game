@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class DayNightCycle : MonoBehaviour
 {
+    public float alpha = .6f;
     [SerializeField] private Gradient lightColor;
     [SerializeField] private GameObject light;
 
@@ -14,7 +15,7 @@ public class DayNightCycle : MonoBehaviour
         var t = new TimeStructure(timestamp);
         var lightRate = t.hours / 24;
         var newLightColor = lightColor.Evaluate(lightRate);
-        newLightColor.a = .2f;
+        newLightColor.a = alpha;
         light.GetComponent<Image>().color = newLightColor;
         //light.GetComponent<Light2D>().color = lightColor.Evaluate(lightRate);
     }
