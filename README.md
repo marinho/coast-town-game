@@ -1,3 +1,7 @@
+# Fire Coast
+
+Where the rocks are orange, and the sand is golden.
+
 ## Thanks
 
 
