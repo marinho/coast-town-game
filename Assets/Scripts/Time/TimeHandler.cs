@@ -8,6 +8,7 @@ public class TimeHandler : MonoBehaviour
     public int currentTimestamp = 0; // 1 = 1 hour in the game = 1 minute in real time
     public Text timestampDisplayText;
     private float timerCounter = 0;
+    private static int timeToUpdateTimerInSeconds = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -66,10 +67,10 @@ public class TimeHandler : MonoBehaviour
     private void UpdateTimer()
     {
         timerCounter += Time.deltaTime;
-        if (timerCounter >= 1)
+        if (timerCounter >= timeToUpdateTimerInSeconds)
         {
-            timerCounter = timerCounter % 1;
-            UpdateCurrentTimestamp(currentTimestamp + 1);
+            timerCounter = timerCounter % timeToUpdateTimerInSeconds;
+            UpdateCurrentTimestamp(currentTimestamp + timeToUpdateTimerInSeconds);
         }
     }
 

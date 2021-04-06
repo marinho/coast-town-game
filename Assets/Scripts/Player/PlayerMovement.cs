@@ -8,14 +8,31 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rigidBody;
     private Vector3 change;
     private Animator animator;
+    private float counterToSavePosition;
+
+    private static int timeToSavePositionInSeconds = 3;
+    private Transform transform;
 
     // Start is called before the first frame update
     void Start()
     {
+        transform = GetComponent<Transform>();
         animator = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody2D>();
-        animator.SetFloat("moveX", 0);
-        animator.SetFloat("moveY", -1);
+
+        LoadInitialPosition();
+    }
+
+    void LoadInitialPosition()
+    {
+        var savedPosition = new Vector3(
+            PlayerPrefs.GetFloat(PlayerPrefKeys.LatestPositionX),
+            PlayerPrefs.GetFloat(PlayerPrefKeys.LatestPositionY),
+            transform.position.z
+        );
+        transform.position = savedPosition;
+        animator.SetFloat("moveX", savedPosition.x);
+        animator.SetFloat("moveY", savedPosition.y);
     }
 
     // Update is called once per frame
@@ -26,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
         change.y = Input.GetAxisRaw("Vertical");
 
         UpdateAnimationAndMove();
+        SaveLatestPosition();
     }
 
     void UpdateAnimationAndMove()
@@ -49,5 +67,17 @@ public class PlayerMovement : MonoBehaviour
         rigidBody.MovePosition(
             transform.position + change * speed * Time.deltaTime
         );
+    }
+
+    void SaveLatestPosition()
+    {
+        //PlayerPrefKeys
+        counterToSavePosition += Time.deltaTime;
+        if (counterToSavePosition >= timeToSavePositionInSeconds)
+        {
+            counterToSavePosition = counterToSavePosition % timeToSavePositionInSeconds;
+            PlayerPrefs.SetFloat(PlayerPrefKeys.LatestPositionX, transform.position.x);
+            PlayerPrefs.SetFloat(PlayerPrefKeys.LatestPositionY, transform.position.y);
+        }
     }
 }
