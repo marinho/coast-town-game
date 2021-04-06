@@ -4039,8 +4039,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bondsPercentage: 40
   currentBalance: 0
-  currentTimestamp: 0
-  timestampDisplayText: {fileID: 300099256}
   bondsDisplayText: {fileID: 380958776}
   stocksDisplayText: {fileID: 958933581}
   bestScenarioText: {fileID: 1581960520}
@@ -4144,6 +4142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac67f02f15ce4e7f82a9996fa05e734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTimestamp: 0
+  timestampDisplayText: {fileID: 300099256}
 --- !u!114 &780460244
 MonoBehaviour:
   m_ObjectHideFlags: 0

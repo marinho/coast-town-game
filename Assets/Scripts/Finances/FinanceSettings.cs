@@ -5,9 +5,7 @@ public class FinanceSettings : MonoBehaviour
 {
     public int bondsPercentage = 40; // stocks get the rest
     public int currentBalance = 0;
-    public int currentTimestamp = 0; // 1 = 1 hour in the game = 1 minute in real time
 
-    public Text timestampDisplayText;
     public Text bondsDisplayText;
     public Text stocksDisplayText;
     public Text bestScenarioText;
@@ -17,7 +15,6 @@ public class FinanceSettings : MonoBehaviour
 
     private bool isInitialized = false;
     private FinanceData financeData;
-    private float timerCounter = 0;
 
     public int GetBondsPercentage()
     {
@@ -38,14 +35,6 @@ public class FinanceSettings : MonoBehaviour
         bondsPercentage = (int)value;
         PlayerPrefs.SetInt(FinancePrefKeys.BondsPercentage, bondsPercentage);
         UpdateUIValues();
-    }
-
-    private void UpdateUICurrentTimestamp()
-    {
-        if (timestampDisplayText != null)
-        {
-            timestampDisplayText.text = FormattingHelpers.FormatHumanTime(currentTimestamp);
-        }
     }
 
     private void UpdateUIRiskRate()
@@ -70,7 +59,6 @@ public class FinanceSettings : MonoBehaviour
 
     private void UpdateUIValues()
     {
-        UpdateUICurrentTimestamp();
 
         if (bondsDisplayText != null)
         {
@@ -115,45 +103,6 @@ public class FinanceSettings : MonoBehaviour
         }
     }
 
-    private void LoadCurrentTimestamp()
-    {
-        if (PlayerPrefs.HasKey(FinancePrefKeys.CurrentTimestamp))
-        {
-            currentTimestamp = PlayerPrefs.GetInt(FinancePrefKeys.CurrentTimestamp);
-        }
-        else
-        {
-            UpdateCurrentTimestamp(FinanceConsts.InitialTimestamp);
-        }
-    }
-
-    public void UpdateCurrentTimestamp(int timestamp)
-    {
-        currentTimestamp = timestamp;
-        PlayerPrefs.SetInt(FinancePrefKeys.CurrentTimestamp, currentTimestamp);
-
-        var dayNightCycle = GetComponent<DayNightCycle>();
-        if (dayNightCycle != null)
-        {
-            dayNightCycle.UpdateCurrentTime(timestamp);
-        }
-    }
-
-    public TimeStructure GetTimestampAsTimeStructure()
-    {
-        return new TimeStructure(currentTimestamp);
-    }
-
-    private void UpdateTimer()
-    {
-        timerCounter += Time.deltaTime;
-        if (timerCounter >= 1)
-        {
-            timerCounter = timerCounter % 1;
-            UpdateCurrentTimestamp(currentTimestamp + 1);
-        }
-    }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -162,7 +111,6 @@ public class FinanceSettings : MonoBehaviour
         bondsPercentage = PlayerPrefs.GetInt(FinancePrefKeys.BondsPercentage);
 
         LoadCurrentBalance();
-        LoadCurrentTimestamp();
 
         UpdateUIValues();
         isInitialized = true;
@@ -171,8 +119,7 @@ public class FinanceSettings : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateUICurrentTimestamp();
-        UpdateTimer();
+        
     }
 
 }

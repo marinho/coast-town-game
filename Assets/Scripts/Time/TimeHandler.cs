@@ -1,15 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TimeHandler : MonoBehaviour
 {
-    private FinanceSettings financeSettings;
+    public int currentTimestamp = 0; // 1 = 1 hour in the game = 1 minute in real time
+    public Text timestampDisplayText;
+    private float timerCounter = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        financeSettings = GetComponent<FinanceSettings>();
+        LoadCurrentTimestamp();
+    }
+
+    private void Update()
+    {
+        UpdateUICurrentTimestamp();
+        UpdateTimer();
     }
 
     // Update is called once per frame
@@ -17,11 +26,59 @@ public class TimeHandler : MonoBehaviour
     {
         // TODO: smooth fast forward
         int timeInMinutes = hour * TimeStructure.OneHour;
-        var t = financeSettings.GetTimestampAsTimeStructure();
+        var t = GetTimestampAsTimeStructure();
         int minutesToForward = t.hours < hour
             ? timeInMinutes - (t.hours * TimeStructure.OneHour + t.minutes)
             : TimeStructure.OneDay - ((t.hours * TimeStructure.OneHour + t.minutes) - timeInMinutes);
 
-        financeSettings.UpdateCurrentTimestamp(t.timestamp + minutesToForward);
+        UpdateCurrentTimestamp(t.timestamp + minutesToForward);
     }
+
+    private void LoadCurrentTimestamp()
+    {
+        if (PlayerPrefs.HasKey(FinancePrefKeys.CurrentTimestamp))
+        {
+            currentTimestamp = PlayerPrefs.GetInt(FinancePrefKeys.CurrentTimestamp);
+        }
+        else
+        {
+            UpdateCurrentTimestamp(FinanceConsts.InitialTimestamp);
+        }
+    }
+
+    public void UpdateCurrentTimestamp(int timestamp)
+    {
+        currentTimestamp = timestamp;
+        PlayerPrefs.SetInt(FinancePrefKeys.CurrentTimestamp, currentTimestamp);
+
+        var dayNightCycle = GetComponent<DayNightCycle>();
+        if (dayNightCycle != null)
+        {
+            dayNightCycle.UpdateCurrentTime(timestamp);
+        }
+    }
+
+    public TimeStructure GetTimestampAsTimeStructure()
+    {
+        return new TimeStructure(currentTimestamp);
+    }
+
+    private void UpdateTimer()
+    {
+        timerCounter += Time.deltaTime;
+        if (timerCounter >= 1)
+        {
+            timerCounter = timerCounter % 1;
+            UpdateCurrentTimestamp(currentTimestamp + 1);
+        }
+    }
+
+    private void UpdateUICurrentTimestamp()
+    {
+        if (timestampDisplayText != null)
+        {
+            timestampDisplayText.text = FormattingHelpers.FormatHumanTime(currentTimestamp);
+        }
+    }
+
 }
