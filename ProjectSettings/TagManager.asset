@@ -44,6 +44,12 @@ TagManager:
   - name: Furniture
     uniqueID: 4136605369
     locked: 0
+  - name: Animals
+    uniqueID: 766936503
+    locked: 0
   - name: Player
     uniqueID: 1674498607
+    locked: 0
+  - name: Above Player
+    uniqueID: 209147657
     locked: 0

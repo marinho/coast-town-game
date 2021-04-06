@@ -12,9 +12,9 @@ public class UseObject : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Space) && playerInRange && screenToShow != null)
+        if (Input.GetKey(KeyCode.Space))
         {
-            screenToShow.SetActive(true);
+            ShowAttachedScreen();
         }
     }
 
@@ -33,6 +33,19 @@ public class UseObject : MonoBehaviour
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = spriteMouseOut;
             playerInRange = false;
+        }
+    }
+
+    private void OnMouseDown()
+    {
+        ShowAttachedScreen();
+    }
+
+    private void ShowAttachedScreen()
+    {
+        if (playerInRange && screenToShow != null)
+        {
+            screenToShow.SetActive(true);
         }
     }
 }
