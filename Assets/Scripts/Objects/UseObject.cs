@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class UseObject : MonoBehaviour
 {
-    public Sprite spriteMouseOut;
-    public Sprite spriteMouseOver;
+    public Material mouseOverOutlineMaterial;
     public GameObject screenToShow;
     public bool isActive = true;
 
     private bool playerInRange = false;
+    private Material initialMaterial;
 
     private void Update()
     {
@@ -21,18 +21,21 @@ public class UseObject : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && spriteMouseOver != null && isActive)
+        if (other.CompareTag("Player") && mouseOverOutlineMaterial != null && isActive)
         {
-            gameObject.GetComponent<SpriteRenderer>().sprite = spriteMouseOver;
+            var spriteRenderer = GetSpriteRenderer();
+            initialMaterial = spriteRenderer.material;
+            spriteRenderer.material = mouseOverOutlineMaterial;
             playerInRange = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && spriteMouseOut != null && isActive)
+        if (other.CompareTag("Player") && isActive)
         {
-            gameObject.GetComponent<SpriteRenderer>().sprite = spriteMouseOut;
+            var spriteRenderer = GetSpriteRenderer();
+            spriteRenderer.material = initialMaterial;
             playerInRange = false;
         }
     }
@@ -51,5 +54,10 @@ public class UseObject : MonoBehaviour
         {
             screenToShow.SetActive(true);
         }
+    }
+
+    private SpriteRenderer GetSpriteRenderer()
+    {
+        return gameObject.GetComponent<SpriteRenderer>();
     }
 }
