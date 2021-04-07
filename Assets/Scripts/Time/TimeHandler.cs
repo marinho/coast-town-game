@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,6 +20,8 @@ public class TimeHandler : MonoBehaviour
         UpdateUICurrentTimestamp();
         UpdateTimer();
     }
+
+    public event Action onNewMonth;
 
     // Update is called once per frame
     public void SleepUntilNextHour(int hour)

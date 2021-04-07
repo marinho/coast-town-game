@@ -1,3 +1,6 @@
+using System;
+using UnityEngine;
+
 public class TimeStructure
 {
     public int timestamp;
@@ -8,12 +11,54 @@ public class TimeStructure
 
     public static int OneHour = 60;
     public static int OneDay = 60 * 24;
+    public static int OneMonth = 60 * 24 * 30;
     public static int OneYear = 60 * 24 * 365;
+    public static int[] Months = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
     public TimeStructure(int _timestamp)
     {
         timestamp = _timestamp;
         UpdateParts();
+    }
+
+    public bool IsFirstDayOfAMonth()
+    {
+        int remainder = days;
+        Debug.Log("1111: " + remainder); // XXX
+        foreach (int monthDays in Months)
+        {
+            if (remainder == 1)
+            {
+                return true;
+            }
+            remainder -= monthDays;
+        }
+        return false;
+    }
+
+    public int GetDayOfYear()
+    {
+        return days + 1;
+    }
+
+    public int GetMonth()
+    {
+        int month;
+        int accumulatedDays = 0;
+        for (month = 0; month < 12; month++)
+        {
+            accumulatedDays += Months[month];
+            if (GetDayOfYear() <= accumulatedDays)
+            {
+                break;
+            }
+        }
+        return month + 1;
+    }
+
+    public int GetYear()
+    {
+        return years + 1;
     }
 
     private void UpdateParts()

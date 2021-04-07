@@ -11,6 +11,7 @@ Where the rocks are orange, and the sand is golden.
 * [Train Station Game Assets](https://guttykreum.itch.io/train-station-game-assets)
 * [Zelda Like Tilesets and Sprites](https://opengameart.org/content/zelda-like-tilesets-and-sprites)
 * [2D Outlines in Unity Shader Graph Tutorial](https://www.youtube.com/watch?v=84rZ-rCRsZk)
+* [VCR OSD Mono Font](https://www.dafont.com/de/vcr-osd-mono.font)
 
 ### Software used
 
