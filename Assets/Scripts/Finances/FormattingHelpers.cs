@@ -8,11 +8,11 @@ public static class FormattingHelpers
     {
         if (value >= OneMilion)
         {
-            return string.Format("$ {0:0.00}M", value / OneMilion);
+            return string.Format("$ {0:0.0}M", value / OneMilion);
         }
         else if (value >= TenThousand)
         {
-            return string.Format("$ {0:0.00}k", value / OneThousand);
+            return string.Format("$ {0:0.0}k", value / OneThousand);
         }
         else
         {

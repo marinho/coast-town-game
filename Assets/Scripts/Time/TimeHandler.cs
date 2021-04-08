@@ -17,6 +17,7 @@ public class TimeHandler : MonoBehaviour
 
     private float timerCounter = 0;
     private static int timeToUpdateTimerInSeconds = 1;
+    public static int InitialTimestamp = 0; // before first day and hour passed
 
     // Start is called before the first frame update
     void Start()
@@ -53,7 +54,7 @@ public class TimeHandler : MonoBehaviour
         }
         else
         {
-            UpdateCurrentTimestamp(FinanceConsts.InitialTimestamp);
+            UpdateCurrentTimestamp(InitialTimestamp);
         }
     }
 

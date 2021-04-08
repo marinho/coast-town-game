@@ -33,6 +33,10 @@ public class EventInstance
 
 public static class EventType
 {
-    public static string FinanceCreditIntoBalance = "Finance.CreditIntoBalance";
-    public static string FinanceDebitIntoBalance = "Finance.DebitIntoBalance";
+    public static string FinanceCreditIntoWallet = "Finance.CreditIntoWallet";
+    public static string FinanceDebitIntoWallet = "Finance.DebitIntoWallet";
+    public static string FinanceCreditIntoBonds = "Finance.CreditIntoBonds";
+    public static string FinanceDebitIntoBonds = "Finance.DebitIntoBonds";
+    public static string FinanceCreditIntoStocks = "Finance.CreditIntoStocks";
+    public static string FinanceDebitIntoStocks = "Finance.DebitIntoStocks";
 }

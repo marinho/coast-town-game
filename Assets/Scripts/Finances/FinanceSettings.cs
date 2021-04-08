@@ -4,14 +4,18 @@ using UnityEngine.UI;
 public class FinanceSettings : MonoBehaviour
 {
     public int bondsPercentage = 40; // stocks get the rest
-    public int currentBalance = 0;
+    public int walletBalance = 0;
+    public int bondsBalance = 0;
+    public int stocksBalance = 0;
 
     public Text bondsDisplayText;
     public Text stocksDisplayText;
     public Text bestScenarioText;
     public Text worstScenarioText;
     public Text riskRateText;
-    public Text balanceDisplayText;
+    public Text bondsDisplayValue;
+    public Text stocksDisplayValue;
+    public Text walletDisplayValue;
 
     private bool isInitialized = false;
     private FinanceData financeData;
@@ -37,28 +41,30 @@ public class FinanceSettings : MonoBehaviour
         UpdateUIValues();
     }
 
-    public void PayMonthlyIncome()
+    public void UpdateInvestmentsDaily()
     {
-        Debug.Log("New Month!"); // XXX
+        Debug.Log("New day!"); // XXX
     }
 
     private void UpdateUIRiskRate()
     {
-        if (riskRateText != null)
+        if (riskRateText == null)
         {
-            var percentage = bondsPercentage * FinanceConsts.BondsRate + GetStocksPercentage() * FinanceConsts.minStocksRate;
-            if (percentage < -4)
-            {
-                riskRateText.text = "High";
-            }
-            else if (percentage < -1)
-            {
-                riskRateText.text = "Medium";
-            }
-            else
-            {
-                riskRateText.text = "Low";
-            }
+            return;
+        }
+
+        var percentage = bondsPercentage * FinanceConsts.BondsRate + GetStocksPercentage() * FinanceConsts.MinStocksRate;
+        if (percentage < -4)
+        {
+            riskRateText.text = "High";
+        }
+        else if (percentage < -1)
+        {
+            riskRateText.text = "Medium";
+        }
+        else
+        {
+            riskRateText.text = "Low";
         }
     }
 
@@ -77,34 +83,68 @@ public class FinanceSettings : MonoBehaviour
 
         if (bestScenarioText != null)
         {
-            var percentage = bondsPercentage * FinanceConsts.BondsRate + GetStocksPercentage() * FinanceConsts.maxStocksRate;
+            var percentage = bondsPercentage * FinanceConsts.BondsRate + GetStocksPercentage() * FinanceConsts.MaxStocksRate;
             bestScenarioText.text = FormattingHelpers.FormatPercentage((int)percentage);
         }
 
         if (worstScenarioText != null)
         {
-            var percentage = bondsPercentage * FinanceConsts.BondsRate + GetStocksPercentage() * FinanceConsts.minStocksRate;
+            var percentage = bondsPercentage * FinanceConsts.BondsRate + GetStocksPercentage() * FinanceConsts.MinStocksRate;
             worstScenarioText.text = FormattingHelpers.FormatPercentage((int)percentage);
         }
 
         UpdateUIRiskRate();
 
-        if (balanceDisplayText != null)
+        if (walletDisplayValue != null)
         {
-            balanceDisplayText.text = FormattingHelpers.FormatCurrency(currentBalance);
+            walletDisplayValue.text = FormattingHelpers.FormatCurrency(walletBalance);
+        }
+        if (bondsDisplayValue != null)
+        {
+            bondsDisplayValue.text = FormattingHelpers.FormatCurrency(bondsBalance);
+        }
+        if (stocksDisplayValue != null)
+        {
+            stocksDisplayValue.text = FormattingHelpers.FormatCurrency(stocksBalance);
         }
     }
 
-    private void LoadCurrentBalance()
+    private void LoadWalletBalance()
     {
-        if (PlayerPrefs.HasKey(FinancePrefKeys.CurrentBalance))
+        if (PlayerPrefs.HasKey(FinancePrefKeys.WalletBalance))
         {
-            currentBalance = PlayerPrefs.GetInt(FinancePrefKeys.CurrentBalance);
+            walletBalance = PlayerPrefs.GetInt(FinancePrefKeys.WalletBalance);
         }
         else
         {
-            currentBalance = FinanceConsts.InitialBalance;
-            financeData.CreditIntoBalance(currentBalance, "Initial credit");
+            walletBalance = FinanceConsts.InitialWallet;
+            financeData.CreditIntoWallet(walletBalance, "Initial balance");
+        }
+    }
+
+    private void LoadBondsBalance()
+    {
+        if (PlayerPrefs.HasKey(FinancePrefKeys.BondsBalance))
+        {
+            bondsBalance = PlayerPrefs.GetInt(FinancePrefKeys.BondsBalance);
+        }
+        else
+        {
+            bondsBalance = FinanceConsts.InitialBonds;
+            financeData.CreditIntoBonds(bondsBalance, "Initial bonds");
+        }
+    }
+
+    private void LoadStocksBalance()
+    {
+        if (PlayerPrefs.HasKey(FinancePrefKeys.StocksBalance))
+        {
+            stocksBalance = PlayerPrefs.GetInt(FinancePrefKeys.StocksBalance);
+        }
+        else
+        {
+            stocksBalance = FinanceConsts.InitialStocks;
+            financeData.CreditIntoStocks(stocksBalance, "Initial stocks");
         }
     }
 
@@ -115,25 +155,12 @@ public class FinanceSettings : MonoBehaviour
 
         bondsPercentage = PlayerPrefs.GetInt(FinancePrefKeys.BondsPercentage);
 
-        LoadCurrentBalance();
+        LoadWalletBalance();
+        LoadBondsBalance();
+        LoadStocksBalance();
 
         UpdateUIValues();
         isInitialized = true;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-}
-
-public static class FinanceConsts
-{
-    public static float BondsRate = 0.01f; // always +
-    public static float minStocksRate = -0.06f;
-    public static float maxStocksRate = 0.10f;
-    public static int InitialBalance = 1000000; // 1 milion
-    public static int InitialTimestamp = 0; // before first day and hour passed
 }

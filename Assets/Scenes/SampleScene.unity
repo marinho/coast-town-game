@@ -1150,6 +1150,10 @@ RectTransform:
   - {fileID: 1770769196}
   - {fileID: 256800100}
   - {fileID: 2026591232}
+  - {fileID: 1725015022}
+  - {fileID: 1209176705}
+  - {fileID: 1406465119}
+  - {fileID: 1658678269}
   m_Father: {fileID: 567483225}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4036,7 +4040,7 @@ GameObject:
   - component: {fileID: 676481943}
   - component: {fileID: 676481942}
   m_Layer: 5
-  m_Name: Balance Value
+  m_Name: Wallet Value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4058,8 +4062,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 285, y: 227}
-  m_SizeDelta: {x: 140, y: 34}
+  m_AnchoredPosition: {x: 238.49998, y: 196.09999}
+  m_SizeDelta: {x: 116.7866, y: 34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &676481942
 MonoBehaviour:
@@ -4790,9 +4794,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Bonds offer a fixed rate of 0.1% per Year. Stocks offer a variable rate
-    between -8% and +8% per Year. Setting 40% on Bonds and 60% on Stocks will likely
-    reach a better balanced return.
+  m_Text: Bonds offer a fixed rate of 1% per Year. Stocks offer a variable rate between
+    -6% and +10% per Year. Setting 40% on Bonds and 60% on Stocks will likely reach
+    a better balanced return.
 --- !u!222 &768836847
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4836,13 +4840,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bondsPercentage: 40
-  currentBalance: 0
+  walletBalance: 0
+  bondsBalance: 0
+  stocksBalance: 0
   bondsDisplayText: {fileID: 380958776}
   stocksDisplayText: {fileID: 958933581}
   bestScenarioText: {fileID: 1581960520}
   worstScenarioText: {fileID: 1770769197}
   riskRateText: {fileID: 2026591233}
-  balanceDisplayText: {fileID: 676481942}
+  bondsDisplayValue: {fileID: 1658678270}
+  stocksDisplayValue: {fileID: 1209176706}
+  walletDisplayValue: {fileID: 676481942}
 --- !u!4 &780460239
 Transform:
   m_ObjectHideFlags: 0
@@ -4963,13 +4971,10 @@ MonoBehaviour:
         m_CallState: 2
   onDayChange:
     m_PersistentCalls:
-      m_Calls: []
-  onMonthChange:
-    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 780460238}
         m_TargetAssemblyTypeName: FinanceSettings, Assembly-CSharp
-        m_MethodName: PayMonthlyIncome
+        m_MethodName: UpdateInvestmentsDaily
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4979,6 +4984,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onMonthChange:
+    m_PersistentCalls:
+      m_Calls: []
   onYearChange:
     m_PersistentCalls:
       m_Calls: []
@@ -12994,6 +13002,85 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.251892, y: 3.222931}
   m_EdgeRadius: 0
+--- !u!1 &1209176704
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1209176705}
+  - component: {fileID: 1209176707}
+  - component: {fileID: 1209176706}
+  m_Layer: 5
+  m_Name: Stocks Value
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1209176705
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209176704}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 427517041}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 238.5, y: 239.6}
+  m_SizeDelta: {x: 116.7866, y: 34}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1209176706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209176704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: c52e432bb8409431d97f0e850ae06def, type: 3}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: $ 123.00
+--- !u!222 &1209176707
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209176704}
+  m_CullTransparentMesh: 1
 --- !u!1 &1215277536
 GameObject:
   m_ObjectHideFlags: 0
@@ -20128,6 +20215,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1384635376}
   m_CullTransparentMesh: 1
+--- !u!1 &1406465118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1406465119}
+  - component: {fileID: 1406465121}
+  - component: {fileID: 1406465120}
+  m_Layer: 5
+  m_Name: Bonds Label
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1406465119
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406465118}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 427517041}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 105.60968, y: 284.1}
+  m_SizeDelta: {x: 102.99, y: 34}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1406465120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406465118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: c52e432bb8409431d97f0e850ae06def, type: 3}
+    m_FontSize: 26
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 5
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Bonds
+--- !u!222 &1406465121
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406465118}
+  m_CullTransparentMesh: 1
 --- !u!1 &1406865847
 GameObject:
   m_ObjectHideFlags: 0
@@ -21308,6 +21474,85 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1658678268
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1658678269}
+  - component: {fileID: 1658678271}
+  - component: {fileID: 1658678270}
+  m_Layer: 5
+  m_Name: Bonds Value
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1658678269
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658678268}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 427517041}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 238.49998, y: 284.1}
+  m_SizeDelta: {x: 116.7866, y: 34}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1658678270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658678268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: c52e432bb8409431d97f0e850ae06def, type: 3}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: $ 123.00
+--- !u!222 &1658678271
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658678268}
+  m_CullTransparentMesh: 1
 --- !u!1 &1682382608
 GameObject:
   m_ObjectHideFlags: 0
@@ -21453,6 +21698,85 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1725015021
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1725015022}
+  - component: {fileID: 1725015024}
+  - component: {fileID: 1725015023}
+  m_Layer: 5
+  m_Name: Stocks Label
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1725015022
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725015021}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 427517041}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 105.60968, y: 239.6}
+  m_SizeDelta: {x: 102.99, y: 34}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1725015023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725015021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: c52e432bb8409431d97f0e850ae06def, type: 3}
+    m_FontSize: 26
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 5
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Stocks
+--- !u!222 &1725015024
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725015021}
+  m_CullTransparentMesh: 1
 --- !u!1 &1746193262
 GameObject:
   m_ObjectHideFlags: 0
@@ -21740,7 +22064,7 @@ GameObject:
   - component: {fileID: 1798732707}
   - component: {fileID: 1798732706}
   m_Layer: 5
-  m_Name: Balance
+  m_Name: Wallet Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21762,8 +22086,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 122, y: 227}
-  m_SizeDelta: {x: 140, y: 34}
+  m_AnchoredPosition: {x: 105.60968, y: 196.09999}
+  m_SizeDelta: {x: 102.99, y: 34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1798732706
 MonoBehaviour:
@@ -21798,7 +22122,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Balance
+  m_Text: Wallet
 --- !u!222 &1798732707
 CanvasRenderer:
   m_ObjectHideFlags: 0

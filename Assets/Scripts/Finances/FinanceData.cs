@@ -4,31 +4,70 @@ using UnityEngine;
 
 public class FinanceData : MonoBehaviour
 {
-    private DataStore dataStore;
-
-    void Start()
+    public void CreditIntoWallet(int value, string description)
     {
-        dataStore = GetComponent<DataStore>();
-    }
-
-    public void CreditIntoBalance(int value, string description)
-    {
+        var dataStore = GetComponent<DataStore>();
         string body = JsonBrace(string.Format("\"value\": {0}, \"description\": \"{1}\"", value, description));
-        dataStore.SaveEvent(new EventInstance(0, EventType.FinanceCreditIntoBalance, body));
-        UpdateCurrentBalance(value);
+        dataStore.SaveEvent(new EventInstance(0, EventType.FinanceCreditIntoWallet, body));
+        UpdateWalletBalance(value);
     }
 
-    public void DebitIntoBalance(int value, string description)
+    public void DebitIntoWallet(int value, string description)
     {
+        var dataStore = GetComponent<DataStore>();
         string body = JsonBrace(string.Format("\"value\": {0}, \"description\": \"{1}\"", value, description));
-        dataStore.SaveEvent(new EventInstance(0, EventType.FinanceDebitIntoBalance, "{\"value\": 0, \"description\": \"Initial credit.\"}"));
-        UpdateCurrentBalance(value * -1);
+        dataStore.SaveEvent(new EventInstance(0, EventType.FinanceDebitIntoWallet, "{\"value\": 0, \"description\": \"Initial credit.\"}"));
+        UpdateWalletBalance(value * -1);
     }
 
-    private void UpdateCurrentBalance(int differenceValue)
+    private void UpdateWalletBalance(int differenceValue)
     {
-        var currentBalance = PlayerPrefs.GetInt(FinancePrefKeys.CurrentBalance, 0);
-        PlayerPrefs.SetInt(FinancePrefKeys.CurrentBalance, currentBalance + differenceValue);
+        var walletBalance = PlayerPrefs.GetInt(FinancePrefKeys.WalletBalance, 0);
+        PlayerPrefs.SetInt(FinancePrefKeys.WalletBalance, walletBalance + differenceValue);
+    }
+
+    public void CreditIntoBonds(int value, string description)
+    {
+        var dataStore = GetComponent<DataStore>();
+        string body = JsonBrace(string.Format("\"value\": {0}, \"description\": \"{1}\"", value, description));
+        dataStore.SaveEvent(new EventInstance(0, EventType.FinanceCreditIntoBonds, body));
+        UpdateBondsBalance(value);
+    }
+
+    public void DebitIntoBonds(int value, string description)
+    {
+        var dataStore = GetComponent<DataStore>();
+        string body = JsonBrace(string.Format("\"value\": {0}, \"description\": \"{1}\"", value, description));
+        dataStore.SaveEvent(new EventInstance(0, EventType.FinanceDebitIntoBonds, "{\"value\": 0, \"description\": \"Initial credit.\"}"));
+        UpdateBondsBalance(value * -1);
+    }
+
+    private void UpdateBondsBalance(int differenceValue)
+    {
+        var bondsBalance = PlayerPrefs.GetInt(FinancePrefKeys.BondsBalance, 0);
+        PlayerPrefs.SetInt(FinancePrefKeys.BondsBalance, bondsBalance + differenceValue);
+    }
+
+    public void CreditIntoStocks(int value, string description)
+    {
+        var dataStore = GetComponent<DataStore>();
+        string body = JsonBrace(string.Format("\"value\": {0}, \"description\": \"{1}\"", value, description));
+        dataStore.SaveEvent(new EventInstance(0, EventType.FinanceCreditIntoStocks, body));
+        UpdateStocksBalance(value);
+    }
+
+    public void DebitIntoStocks(int value, string description)
+    {
+        var dataStore = GetComponent<DataStore>();
+        string body = JsonBrace(string.Format("\"value\": {0}, \"description\": \"{1}\"", value, description));
+        dataStore.SaveEvent(new EventInstance(0, EventType.FinanceDebitIntoStocks, "{\"value\": 0, \"description\": \"Initial credit.\"}"));
+        UpdateStocksBalance(value * -1);
+    }
+
+    private void UpdateStocksBalance(int differenceValue)
+    {
+        var stocksBalance = PlayerPrefs.GetInt(FinancePrefKeys.StocksBalance, 0);
+        PlayerPrefs.SetInt(FinancePrefKeys.StocksBalance, stocksBalance + differenceValue);
     }
 
     private string JsonBrace(string value)
