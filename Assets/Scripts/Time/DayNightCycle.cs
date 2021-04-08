@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class DayNightCycle : MonoBehaviour
 {
-    public float alpha = .9f;
+    [SerializeField] [Range(0f, 1f)] float alpha = .9f;
     [SerializeField] private Gradient lightColor;
     [SerializeField] private GameObject light;
 

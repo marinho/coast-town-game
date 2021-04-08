@@ -14,8 +14,9 @@ public class PlayerEnergy : MonoBehaviour
     public Sprite mediumEnergySprite;
     public Sprite lowEnergySprite;
     [SerializeField] private Gradient energyColorGradient;
+    [SerializeField] [Range(0f, 1f)] float energyAmountToDecreaseEveryHour = .1f;
 
-    public float currentEnergyLevel; // 0 to 4
+    [SerializeField] [Range(0f, 4f)] float currentEnergyLevel; // 0 to 4
 
     private void Start()
     {
@@ -63,6 +64,11 @@ public class PlayerEnergy : MonoBehaviour
             var energyColor = energyColorGradient.Evaluate(colorPosition);
             energyBarSliderFill.GetComponent<Image>().color = energyColor;
         }
-
     }
+
+    public void DecreaseEnergyLevelEveryHour()
+    {
+        currentEnergyLevel -= energyAmountToDecreaseEveryHour;
+    }
+
 }

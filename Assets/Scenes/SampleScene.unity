@@ -4941,7 +4941,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTimestamp: 0
+  previousTimestamp: 0
   timestampDisplayText: {fileID: 300099256}
+  onMinuteChange:
+    m_PersistentCalls:
+      m_Calls: []
+  onHourChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 780460244}
+        m_TargetAssemblyTypeName: PlayerEnergy, Assembly-CSharp
+        m_MethodName: DecreaseEnergyLevelEveryHour
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDayChange:
+    m_PersistentCalls:
+      m_Calls: []
+  onMonthChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 780460238}
+        m_TargetAssemblyTypeName: FinanceSettings, Assembly-CSharp
+        m_MethodName: PayMonthlyIncome
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onYearChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &780460244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4990,6 +5030,7 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 4
     m_NumAlphaKeys: 2
+  energyAmountToDecreaseEveryHour: 0.2
   currentEnergyLevel: 0
 --- !u!224 &789866369 stripped
 RectTransform:

@@ -1,11 +1,20 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class TimeHandler : MonoBehaviour
 {
     public int currentTimestamp = 0; // 1 = 1 hour in the game = 1 minute in real time
+    public int previousTimestamp;
     public Text timestampDisplayText;
+
+    public UnityEvent onMinuteChange;
+    public UnityEvent onHourChange;
+    public UnityEvent onDayChange;
+    public UnityEvent onMonthChange;
+    public UnityEvent onYearChange;
+
     private float timerCounter = 0;
     private static int timeToUpdateTimerInSeconds = 1;
 
@@ -50,6 +59,7 @@ public class TimeHandler : MonoBehaviour
 
     public void UpdateCurrentTimestamp(int timestamp)
     {
+        previousTimestamp = currentTimestamp;
         currentTimestamp = timestamp;
         PlayerPrefs.SetInt(FinancePrefKeys.CurrentTimestamp, currentTimestamp);
 
@@ -58,6 +68,8 @@ public class TimeHandler : MonoBehaviour
         {
             dayNightCycle.UpdateCurrentTime(timestamp);
         }
+
+        InvokeChangeEvents();
     }
 
     public TimeStructure GetTimestampAsTimeStructure()
@@ -80,6 +92,39 @@ public class TimeHandler : MonoBehaviour
         if (timestampDisplayText != null)
         {
             timestampDisplayText.text = FormattingHelpers.FormatHumanTime(currentTimestamp);
+        }
+    }
+
+    private void InvokeChangeEvents()
+    {
+        var previous = new TimeStructure(previousTimestamp);
+        var current = GetTimestampAsTimeStructure();
+
+        bool hourHasChanged = previous.GetHour() != current.GetHour();
+        bool dayHasChanged = previous.GetDayOfYear() != current.GetDayOfYear();
+        bool monthHasChanged = previous.GetMonth() != current.GetMonth();
+        bool yearHasChanged = previous.GetYear() != current.GetYear();
+
+        onMinuteChange.Invoke();
+
+        if (hourHasChanged)
+        {
+            onHourChange.Invoke();
+        }
+
+        if (dayHasChanged)
+        {
+            onDayChange.Invoke();
+        }
+
+        if (monthHasChanged)
+        {
+            onMonthChange.Invoke();
+        }
+
+        if (yearHasChanged)
+        {
+            onYearChange.Invoke();
         }
     }
 

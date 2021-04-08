@@ -37,6 +37,11 @@ public class FinanceSettings : MonoBehaviour
         UpdateUIValues();
     }
 
+    public void PayMonthlyIncome()
+    {
+        Debug.Log("New Month!"); // XXX
+    }
+
     private void UpdateUIRiskRate()
     {
         if (riskRateText != null)

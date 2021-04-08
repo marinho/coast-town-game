@@ -24,7 +24,6 @@ public class TimeStructure
     public bool IsFirstDayOfAMonth()
     {
         int remainder = days;
-        Debug.Log("1111: " + remainder); // XXX
         foreach (int monthDays in Months)
         {
             if (remainder == 1)
@@ -34,6 +33,11 @@ public class TimeStructure
             remainder -= monthDays;
         }
         return false;
+    }
+
+    public int GetHour()
+    {
+        return hours;
     }
 
     public int GetDayOfYear()
