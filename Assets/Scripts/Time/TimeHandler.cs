@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class TimeHandler : MonoBehaviour
 {
+    public static int InitialTimestamp = 0; // before first day and hour passed
+
     public int currentTimestamp = 0; // 1 = 1 hour in the game = 1 minute in real time
     public int previousTimestamp;
     public Text timestampDisplayText;
@@ -14,10 +16,10 @@ public class TimeHandler : MonoBehaviour
     public UnityEvent onDayChange;
     public UnityEvent onMonthChange;
     public UnityEvent onYearChange;
+    public bool timerIsActive = true;
 
     private float timerCounter = 0;
     private static int timeToUpdateTimerInSeconds = 1;
-    public static int InitialTimestamp = 0; // before first day and hour passed
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +62,11 @@ public class TimeHandler : MonoBehaviour
 
     public void UpdateCurrentTimestamp(int timestamp)
     {
+        if (!timerIsActive)
+        {
+            return;
+        }
+
         previousTimestamp = currentTimestamp;
         currentTimestamp = timestamp;
         PlayerPrefs.SetInt(FinancePrefKeys.CurrentTimestamp, currentTimestamp);

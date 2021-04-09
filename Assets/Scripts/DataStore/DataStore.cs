@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -9,6 +7,7 @@ public class DataStore : MonoBehaviour
     public string eventFilePath = "/events.data";
     public string staticFilePath = "/static.data";
     public StaticStore staticStore;
+    public EventStore eventStore;
 
     // Start is called before the first frame update
     void Start()
@@ -19,10 +18,10 @@ public class DataStore : MonoBehaviour
         InitiliazeStaticDataFile();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void DeleteEventFile()
     {
-
+        string fullFilePath = GetFullEventFilePath();
+        File.Delete(fullFilePath);
     }
 
     // Event Store
@@ -31,13 +30,30 @@ public class DataStore : MonoBehaviour
         string fullFilePath = GetFullEventFilePath();
         if (File.Exists(fullFilePath))
         {
-            return;
+            LoadEventDataFile();
         }
+        else
+        {
+            SaveEventDataFile();
+        }
+    }
 
+    private void LoadEventDataFile()
+    {
+        string fullFilePath = GetFullEventFilePath();
+        BinaryFormatter formatter = new BinaryFormatter();
+        FileStream stream = new FileStream(fullFilePath, FileMode.Open);
+        eventStore = (EventStore)formatter.Deserialize(stream);
+        stream.Close();
+    }
+
+    private void SaveEventDataFile()
+    {
+        string fullFilePath = GetFullEventFilePath();
         BinaryFormatter formatter = new BinaryFormatter();
         FileStream stream = new FileStream(fullFilePath, FileMode.Create);
 
-        var eventStore = new EventStore();
+        eventStore = new EventStore();
 
         formatter.Serialize(stream, eventStore);
         stream.Close();
@@ -75,6 +91,13 @@ public class DataStore : MonoBehaviour
     }
 
     // Static Store - STILL NOT USED
+
+    public void DeleteStaticFile()
+    {
+        string fullFilePath = GetFullStaticFilePath();
+        File.Delete(fullFilePath);
+    }
+
     private void InitiliazeStaticDataFile()
     {
         string fullFilePath = GetFullStaticFilePath();

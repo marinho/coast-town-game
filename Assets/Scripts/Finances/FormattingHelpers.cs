@@ -4,7 +4,7 @@ public static class FormattingHelpers
     public static int TenThousand = 10000;
     public static int OneThousand = 1000;
 
-    public static string FormatCurrency(int value)
+    public static string FormatCurrency(float value)
     {
         if (value >= OneMilion)
         {

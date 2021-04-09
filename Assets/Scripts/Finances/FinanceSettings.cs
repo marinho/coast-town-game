@@ -1,12 +1,13 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class FinanceSettings : MonoBehaviour
 {
-    public int bondsPercentage = 40; // stocks get the rest
-    public int walletBalance = 0;
-    public int bondsBalance = 0;
-    public int stocksBalance = 0;
+    [SerializeField] int bondsPercentage = 40; // stocks get the rest
+    [SerializeField] float walletBalance = 0f;
+    [SerializeField] float bondsBalance = 0f;
+    [SerializeField] float stocksBalance = 0f;
 
     public Text bondsDisplayText;
     public Text stocksDisplayText;
@@ -43,7 +44,15 @@ public class FinanceSettings : MonoBehaviour
 
     public void UpdateInvestmentsDaily()
     {
-        Debug.Log("New day!"); // XXX
+        // Bonds
+        float creditForBonds = bondsBalance * FinanceConsts.BondsRatePerDay;
+        financeData.CreditIntoBonds(creditForBonds, FinanceConsts.BondsDailyDescription);
+        bondsBalance += creditForBonds;
+
+        // Stocks
+        var trackRates = financeData.GetRatesFromEvents();
+        float stocksRate = StocksCalculator.CalculateRateForFluctuation(trackRates);
+        stocksBalance = financeData.FluctuateStocks(stocksRate, stocksBalance);
     }
 
     private void UpdateUIRiskRate()
@@ -113,7 +122,7 @@ public class FinanceSettings : MonoBehaviour
     {
         if (PlayerPrefs.HasKey(FinancePrefKeys.WalletBalance))
         {
-            walletBalance = PlayerPrefs.GetInt(FinancePrefKeys.WalletBalance);
+            walletBalance = PlayerPrefs.GetFloat(FinancePrefKeys.WalletBalance);
         }
         else
         {
@@ -126,7 +135,7 @@ public class FinanceSettings : MonoBehaviour
     {
         if (PlayerPrefs.HasKey(FinancePrefKeys.BondsBalance))
         {
-            bondsBalance = PlayerPrefs.GetInt(FinancePrefKeys.BondsBalance);
+            bondsBalance = PlayerPrefs.GetFloat(FinancePrefKeys.BondsBalance);
         }
         else
         {
@@ -139,7 +148,7 @@ public class FinanceSettings : MonoBehaviour
     {
         if (PlayerPrefs.HasKey(FinancePrefKeys.StocksBalance))
         {
-            stocksBalance = PlayerPrefs.GetInt(FinancePrefKeys.StocksBalance);
+            stocksBalance = PlayerPrefs.GetFloat(FinancePrefKeys.StocksBalance);
         }
         else
         {

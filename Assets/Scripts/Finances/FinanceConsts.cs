@@ -10,7 +10,10 @@ public static class FinanceConsts
     public static float MinStockRatePerDay = -.03f;
     public static float MaxStockRatePerDay = +.05f;
 
-    public static int InitialWallet = 0;
+    public static int InitialWallet = 50;
     public static int InitialBonds = 400000; // 40% of 1 milion
     public static int InitialStocks = 600000; // 60% of 1 milion
+
+    public static string BondsDailyDescription = "Bonds interest rates";
+    public static string StocksDailyDescription = "Stocks variation";
 }
